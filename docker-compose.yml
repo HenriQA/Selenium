@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+ hub:
+  build: ./hub/
+  ports:
+   - "4444:4444"
+
+ agent1:
+  build: ./agents/centos-chrome/
+  ports:
+   - "5001:5555"
+  depends_on:
+   - hub
+ agent2:
+  build: ./agents/ubuntu-firefox/
+  ports:
+   - "5002:5555"
+  depends_on:
+   - hub
