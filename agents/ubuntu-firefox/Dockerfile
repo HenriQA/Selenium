@@ -13,7 +13,7 @@ RUN add-apt-repository ppa:ubuntu-mozilla-security/ppa
 RUN apt-get -y update
 RUN apt-get install -y firefox xvfb
 RUN nohup Xvfb :40 -ac &
-RUN export DISPALY=:40
+RUN export DISPLAY=:40
 
 EXPOSE 5555
 CMD nohup java -jar selenium-server-standalone-3.0.1.jar -role node -hub http://172.17.0.2:4444/grid/register -browser browserName=firefox -port 5555
